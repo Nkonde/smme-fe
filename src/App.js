@@ -26,6 +26,7 @@ const validationSchema = Yup.object({
 
 export default function Form() {
   const [showMoreFields, setShowMoreFields] = useState(false); // Manage visibility of extra fields
+  const [base64Image, setBase64Image] = useState(''); // State to store the Base64 image string
 
   // Formik setup
   const formik = useFormik({
@@ -54,6 +55,8 @@ export default function Form() {
           pixelRatio: window.devicePixelRatio, // Ensure correct resolution on high-DPI screens
         });
 
+        // Store Base64 string in state
+        setBase64Image(dataUrl);
         console.log('Base64 Image:', dataUrl); // Log the Base64 image to the console
       } catch (error) {
         console.error('Error taking screenshot:', error);
@@ -67,6 +70,17 @@ export default function Form() {
   // Toggle extra fields visibility
   const toggleMoreFields = () => {
     setShowMoreFields(!showMoreFields);
+  };
+
+  // Function to copy the Base64 image to clipboard
+  const copyToClipboard = () => {
+    if (base64Image) {
+      navigator.clipboard.writeText(base64Image).then(() => {
+        alert('Base64 image copied to clipboard!');
+      }).catch(err => {
+        alert('Failed to copy: ' + err);
+      });
+    }
   };
 
   return (
@@ -178,6 +192,19 @@ export default function Form() {
           {/* Submit Button */}
           <button type="submit" className="submit-btn">Submit</button>
         </form>
+
+        {/* Base64 Output Section */}
+        {base64Image && (
+          <div className="base64-container">
+            <textarea
+              readOnly
+              value={base64Image}
+              rows="5"
+              className="base64-textarea"
+            />
+            <button onClick={copyToClipboard} className="copy-btn">Copy Base64</button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/smme-fe/static/css/main.07269665.css",
+    "main.js": "/smme-fe/static/js/main.14c8893a.js",
+    "static/js/453.3453ed5b.chunk.js": "/smme-fe/static/js/453.3453ed5b.chunk.js",
+    "index.html": "/smme-fe/index.html",
+    "main.07269665.css.map": "/smme-fe/static/css/main.07269665.css.map",
+    "main.14c8893a.js.map": "/smme-fe/static/js/main.14c8893a.js.map",
+    "453.3453ed5b.chunk.js.map": "/smme-fe/static/js/453.3453ed5b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07269665.css",
+    "static/js/main.14c8893a.js"
+  ]
+}
