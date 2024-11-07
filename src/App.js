@@ -2,8 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { toPng } from 'html-to-image'; // Correct import for html-to-image
-
+import { toPng } from 'html-to-image'; 
 // Validation schema using Yup
 const validationSchema = Yup.object({
   name: Yup.string()
